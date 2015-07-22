@@ -1,5 +1,7 @@
 import React from "react";
 
+import editorAction from "../action/EditorAction";
+
 var Editor = React.createClass({
     displayName: "Editor",
 
@@ -7,16 +9,9 @@ var Editor = React.createClass({
         onChange: React.PropTypes.func.isRequired
     },
 
-    getInitialState() {
-        return {
-            editorValue: "hello world"
-        };
-    },
-
     handleChange() {
         const node = this.refs.editor.getDOMNode();
-        this.setState({editorValue: node.value});
-        this.props.onChange(this.state.editorValue);
+        editorAction.updateContent(node.value);
     },
 
     render() {
@@ -50,7 +45,7 @@ var Editor = React.createClass({
                     ref="editor"
                     onChange={this.handleChange}
                     onKeyUp={this.handleChange}
-                    value={this.state.editorValue} />
+                    />
             </div>
         );
     }

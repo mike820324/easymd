@@ -1,5 +1,5 @@
 import React from "react";
-// import Markdown from "react-remarkable";
+
 import Markdown from "remarkable";
 
 const md = new Markdown();
@@ -27,8 +27,7 @@ var Previewer = React.createClass({
         };
 
         return (
-            <div style={containerStyle} dangerouslySetInnerHTML={this.renderMarkdown()}>
-            </div>
+            <div style={containerStyle} dangerouslySetInnerHTML={this.renderMarkdown()} />
         );
     }
 });
